@@ -117,3 +117,48 @@ INSERT INTO Bookings (booking_id, user_id, match_id, seat_number, payment_status
 (505, 3, 102, 'C-20', 'Pending', 120);
 
 
+select * from users;
+select * from bookings;
+select * from matches;
+
+
+---query 1
+select match_id,fixture,base_ticket_price from matches 
+where tournament_category = 'Champions League' and match_status = 'Available';
+
+---query 2
+select user_id,full_name,email from users 
+where full_name ilike 'Tanvir%' or full_name ilike '%Haque%';
+
+---query 3
+select booking_id,user_id,match_id,
+coalesce(payment_status,'Action Required') as systematic_status
+from bookings 
+where payment_status is null;
+
+---query 4
+
+select 
+b.booking_id,
+u.full_name,
+m.fixture,
+b.total_cost
+from bookings b 
+inner join users u on b.user_id = u.user_id
+inner join matches m on b.match_id = m.match_id;
+
+---query 5
+select u.user_id,u.full_name,b.booking_id 
+from users u 
+left join bookings b on b.user_id = u.user_id;
+
+---query 6
+select booking_id,match_id,total_cost from bookings
+where total_cost > (
+  select avg(total_cost) from bookings
+);
+
+---query 7
+select match_id,fixture,base_ticket_price
+from matches limit 2 offset 1;
+
