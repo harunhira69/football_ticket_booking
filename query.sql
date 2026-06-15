@@ -160,5 +160,7 @@ where total_cost > (
 
 ---query 7
 select match_id,fixture,base_ticket_price
-from matches limit 2 offset 1;
+from matches
+ORDER BY base_ticket_price DESC
+limit 2 offset 1;
 
