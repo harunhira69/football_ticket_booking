@@ -1,39 +1,49 @@
-# ⚽ Football Ticket Booking System - Database Design & SQL
+# ⚽ Football Ticket Booking System – Database Design & SQL
 
-A relational database project for a **Football Ticket Booking System**, designed to demonstrate database modeling, Entity Relationship Diagram (ERD) design, and intermediate-to-advanced SQL query writing.
+A relational database project built using **PostgreSQL** that simulates a Football Ticket Booking System. The project demonstrates relational database design, Entity Relationship Diagram (ERD) modeling, database constraints, and SQL query implementation based on real-world business requirements.
 
 ---
 
 ## 📖 Project Overview
 
-This project simulates a football ticket booking platform where users can browse football matches and book tickets.
+This project manages football fans, tournament matches, and ticket bookings through a normalized relational database.
 
-The project focuses on:
+The implementation includes:
 
-- Database Design
+- Relational Database Design
 - Entity Relationship Diagram (ERD)
-- SQL Query Writing
 - Primary & Foreign Keys
+- One-to-Many & Many-to-One Relationships
 - Referential Integrity
-- Relational Database Concepts
+- Database Constraints
+- SQL Query Implementation
+- Business Logic Modeling
+
+---
+
+# 📊 Entity Relationship Diagram (ERD)
+
+<p align="center">
+  <img src="erd.png" alt="Football Ticket Booking System ERD" width="900">
+</p>
 
 ---
 
 ## 🗄️ Database Schema
 
-The database consists of **3 tables**:
+The system consists of three relational tables.
 
 ### 👤 Users
 
-Stores registered users and ticket managers.
+Stores football fans and ticket managers.
 
-| Field |
-|-------|
-| user_id (PK) |
-| full_name |
-| email |
-| role |
-| phone_number |
+| Column | Description |
+|---------|-------------|
+| user_id (PK) | Unique identifier for each user |
+| full_name | User's full name |
+| email | Unique email address |
+| role | Football Fan / Ticket Manager |
+| phone_number | Contact number |
 
 ---
 
@@ -41,47 +51,48 @@ Stores registered users and ticket managers.
 
 Stores football match information.
 
-| Field |
-|-------|
-| match_id (PK) |
-| fixture |
-| tournament_category |
-| base_ticket_price |
-| match_status |
+| Column | Description |
+|---------|-------------|
+| match_id (PK) | Unique match identifier |
+| fixture | Competing teams |
+| tournament_category | Tournament or league |
+| base_ticket_price | Base ticket price |
+| match_status | Ticket availability status |
 
 ---
 
 ### 🎟️ Bookings
 
-Stores ticket booking records.
+Stores football ticket booking records.
 
-| Field |
-|-------|
-| booking_id (PK) |
-| user_id (FK) |
-| match_id (FK) |
-| seat_number |
-| payment_status |
-| total_cost |
+| Column | Description |
+|---------|-------------|
+| booking_id (PK) | Unique booking identifier |
+| user_id (FK) | References Users table |
+| match_id (FK) | References Matches table |
+| seat_number | Reserved seat |
+| payment_status | Payment status |
+| total_cost | Total booking amount |
 
 ---
 
-## 🔗 Relationships
+## 🔗 Database Relationships
 
 - One User ➜ Many Bookings
 - Many Bookings ➜ One Match
-- Each Booking belongs to exactly one User and one Match
+- Each Booking belongs to one User and one Match
+- Data integrity maintained through Primary Keys and Foreign Keys
 
 ---
 
-## 💻 SQL Concepts Used
+## 💻 SQL Features Implemented
 
 - SELECT
 - WHERE
 - LIKE
 - ILIKE
+- IS NULL
 - COALESCE
-- NULL Handling
 - INNER JOIN
 - LEFT JOIN
 - Aggregate Functions
@@ -92,27 +103,54 @@ Stores ticket booking records.
 
 ---
 
+## 🛡️ Database Constraints
+
+The project implements several database constraints to ensure data integrity.
+
+- Primary Keys
+- Foreign Keys
+- UNIQUE Constraint
+- CHECK Constraints
+- NOT NULL Constraints
+
+---
+
+## 📌 Business Logic
+
+The database supports:
+
+- User Management
+- Match Management
+- Football Ticket Booking
+- Seat Reservation
+- Payment Status Tracking
+- Match Availability Management
+
+---
+
 ## 📂 Repository Structure
 
-```
+```text
 football_ticket_booking/
 │
-├── query.sql
-└── README.md
+├── README.md
+├── erd.png
+└── query.sql
 ```
 
 ---
 
-## 🧠 Business Logic
+## 📄 SQL Script
 
-The system supports:
+The `query.sql` file contains:
 
-- User Management
-- Match Management
-- Ticket Booking
-- Seat Allocation
-- Payment Status Tracking
-- Match Availability
+- Database Creation
+- Table Creation
+- Primary & Foreign Key Constraints
+- CHECK Constraints
+- UNIQUE Constraints
+- Sample Data Insertion
+- SQL Queries for Assignment Requirements
 
 ---
 
@@ -120,15 +158,51 @@ The system supports:
 
 - PostgreSQL
 - SQL
-- Lucidchart (ERD)
+- Lucidchart
 - Git
 - GitHub
 
 ---
 
-## 📌 ERD
+## 🎯 Learning Outcomes
 
-ERD Link:
+Through this project, I gained hands-on experience with:
+
+- Relational Database Design
+- Entity Relationship Diagram (ERD)
+- Database Constraints
+- SQL Query Writing
+- JOIN Operations
+- Aggregate Functions
+- Subqueries
+- NULL Handling
+- Business Logic Implementation
+
+---
+
+## 🚀 Getting Started
+
+1. Clone this repository.
+
+```bash
+git clone https://github.com/harunhira69/football_ticket_booking.git
+```
+
+2. Open PostgreSQL.
+
+3. Execute the `query.sql` script.
+
+4. Run the SQL queries included in the script.
+
+---
+
+## 🔗 Project Links
+
+### GitHub Repository
+
+https://github.com/harunhira69/football_ticket_booking
+
+### ERD Design
 
 https://lucid.app/lucidchart/24ad593c-abbd-41f5-bd3b-86290a33af7e/edit
 
@@ -138,5 +212,9 @@ https://lucid.app/lucidchart/24ad593c-abbd-41f5-bd3b-86290a33af7e/edit
 
 **Harun Hira**
 
-GitHub:
-https://github.com/harunhira69
+- GitHub: https://github.com/harunhira69
+- LinkedIn: https://www.linkedin.com/in/YOUR-LINKEDIN-USERNAME/
+
+---
+
+⭐ If you found this project useful, consider giving it a Star.
