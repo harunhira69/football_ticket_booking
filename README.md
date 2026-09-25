@@ -213,7 +213,7 @@ https://lucid.app/lucidchart/24ad593c-abbd-41f5-bd3b-86290a33af7e/edit
 **Harun Hira**
 
 - GitHub: https://github.com/harunhira69
-- LinkedIn: https://www.linkedin.com/in/YOUR-LINKEDIN-USERNAME/
+- LinkedIn: https://www.linkedin.com/in/harunmern/
 
 ---
 
